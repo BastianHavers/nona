@@ -1,5 +1,7 @@
 # NONA - A Framework for Elastic Stream Provenance
 
+![Nona's system architecture](sysArch.png)
+
 This is the repository accompanying the paper _NONA - A Framework for Elastic Stream Provenance_, accepted for publication at the 44th IEEE International Conference on Distributed Computing Systems (ICDCS 2024).
 The framework published here allows to obtain the Forward Provenance graph, _i.e._, the _live_, _duplicate-free_ graph of dependencies between input and output tuples for a set of Stream Processing queries whose composition changes dynamically. This occurs through the user's adding or removing of queries at runtime of the system. See the section "Running custom experiments" below for more details.
 
