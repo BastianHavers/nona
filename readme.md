@@ -2,8 +2,15 @@
 
 ![Nona's system architecture](sysArch.png)
 
-This is the repository accompanying the paper _NONA - A Framework for Elastic Stream Provenance_, accepted for publication at the 44th IEEE International Conference on Distributed Computing Systems (ICDCS 2024).
-The framework published here allows to obtain the Forward Provenance graph, _i.e._, the _live_, _duplicate-free_ graph of dependencies between input and output tuples for a set of Stream Processing queries whose composition changes dynamically. This occurs through the user's adding or removing of queries at runtime of the system. See the section "Running custom experiments" below for more details.
+This is the repository accompanying the research work 
+
+>_NONA - A Framework for Elastic Stream Provenance_
+>
+>[Havers, B.](https://scholar.google.com/citations?user=Tzw3cigAAAAJ&hl=en), [Papatriantafilou, M.](https://research.chalmers.se/person/ptrianta), [Gulisano, V.](https://vincenzogulisano.com/)
+>
+>accepted for publication at the 44th IEEE International Conference on Distributed Computing Systems (ICDCS 2024)
+
+The framework published here allows to obtain the Forward Provenance graph, _i.e._, the _live_, _duplicate-free_ graph of dependencies between input and output tuples for a set of Stream Processing queries whose composition changes dynamically. This happens through the user's adding or removing of queries at runtime of the system. See the section "Running custom experiments" below for more details.
 
 Furthemore, the code published here allows a full replication of the results of the paper, with all necessary steps described below.
 
@@ -25,10 +32,10 @@ You will need the following programs on your main machine:
 
 Furthermore, on the remote machine / data provider machine you will need:
 
-* git
-* java 8 
-* mvn
-* unzip
+* `git`
+* `java 8` 
+* `mvn`
+* `unzip`
 
 
 ### Procedure
@@ -89,7 +96,7 @@ These are run on specific devices, server (Intel Xeon Phi, 72 cores, 1.5GHz, 102
 Furthermore, the maximum duration of each experiment and the number of repetitions may vary.
 The table lists the mapping between figure number in the paper, experiment script, device, duration (in minutes), repetitions, and the plot name (used later):
 
-| figure number           | script                            |  device | duration | reps | plot_name                 | 
+| figure number           | SCRIPT                            |  device | DURATION | REPS | PLOT_NAME                 | 
 |-------------------------| --------------------------------- | ------- | -------- | ---- |---------------------------|
 | 5 (a)                   | LR_static_overheads_odroid.yaml   | odroid  | 10       | 10   | lr_overheads              |
 | 5 (b)                   | CL_static_overheads_server.yaml   | server  | 10       | 10   | cl_overheads              |
@@ -120,7 +127,7 @@ conda activate nona
 ```
 python run.py ../experiments/SCRIPT REPS DURATION
 ```
-where script is the chosen experiment script. This will run the experiment described in `SCRIPT` for `REPS` times, with each run taking at most `DURATION` minutes.
+where `SCRIPT` is the chosen experiment script. This will run the experiment described in `SCRIPT` for `REPS` times, with each run taking at most `DURATION` minutes.
 
 **NOTE 1:** For running the experiment related to Figure 8, see below.
 
@@ -167,8 +174,12 @@ conda activate nona
 ```
 Then, in the directory `/ROOT/scripts/visualization`, call the plotting facility:
 ```
-python plotter.py PLOT TARGET_FOLDER [--show-in-popup]
+python plotter.py PLOT_NAME TARGET_FOLDER [--show-in-popup]
 ```
 where `TARGET_FOLDER` is the folder in which the output of your experiment runs is stored 
 (the exact folder path is printed to the terminal after running `run.py` and will be inside `ROOT/results`). The optional flag will display the experiment plot in a popup window.
-See the table in section _Running Experiments_ above, column _plot_name_, for appropriate values for the `PLOT` parameter.
+See the table in section _Running Experiments_ above, column _PLOT_NAME_, for appropriate values for the `PLOT_NAME` parameter.
+
+## Credit
+
+Nona re-uses code from our earlier work on Forward Provenance from the repository [Ananke](https://github.com/dmpalyvos/ananke).
